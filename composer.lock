@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "626b9e7ddd47fb7eff9aaa53cce0c9ad",
+    "content-hash": "b8125d9f2b0a9cbef0b6c2bd8a220a14",
     "packages": [
         {
             "name": "brick/math",
@@ -5932,6 +5932,52 @@
                 }
             ],
             "time": "2024-09-25T12:00:00+00:00"
+        },
+        {
+            "name": "fsy-laravel/print-tool",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fengshiyou/print-tool.git",
+                "reference": "8f1d4113d21a0fb98c694beda05d6b8cc5786134"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fengshiyou/print-tool/zipball/8f1d4113d21a0fb98c694beda05d6b8cc5786134",
+                "reference": "8f1d4113d21a0fb98c694beda05d6b8cc5786134",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "util",
+            "autoload": {
+                "files": [
+                    "src/print-tool-functions.php"
+                ],
+                "psr-4": [],
+                "classmap": []
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fengshiyou",
+                    "email": "501453944@qq.com"
+                }
+            ],
+            "description": "方便打印调试的工具",
+            "homepage": "https://github.com/fengshiyou/print-tool",
+            "keywords": [
+                "print"
+            ],
+            "support": {
+                "issues": "https://github.com/fengshiyou/print-tool/issues",
+                "source": "https://github.com/fengshiyou/print-tool/tree/0.0.2"
+            },
+            "time": "2016-12-29T02:37:28+00:00"
         },
         {
             "name": "hamcrest/hamcrest-php",
