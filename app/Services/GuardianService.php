@@ -19,10 +19,11 @@ class GuardianService implements RssFeedContract
         Log::debug('Fetching sections from Guardian API', ['endpoint' => $endpoint]);
 
         $this->validateQueryParams($queryParams);
-        $cacheKey = Str::slug($endpoint) . ':' . $queryParams['q'];
+        $cacheKey = Str::slug($endpoint).':'.$queryParams['q'];
 
         if (Cache::has($cacheKey)) {
             Log::debug('Fetching sections from cache', ['endpoint' => $endpoint, 'cache_key' => $cacheKey]);
+
             return Cache::get($cacheKey);
         }
 
@@ -30,7 +31,7 @@ class GuardianService implements RssFeedContract
 
         $queryParams['api-key'] = config('the-guardian.api_key');
         $queryParams['format']  = 'json';
-        $endpointWithParams = $endpoint . '?'.http_build_query($queryParams);
+        $endpointWithParams     = $endpoint.'?'.http_build_query($queryParams);
 
         $response = Http::get(config('the-guardian.resource_url').$endpointWithParams);
         Log::debug('API Response', ['response' => $response->json()]);

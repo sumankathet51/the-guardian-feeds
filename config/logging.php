@@ -51,6 +51,15 @@ return [
     */
 
     'channels' => [
+        'json' => [
+            'driver'       => 'monolog',
+            'level'        => 'debug', // Set default log level
+            'handler'      => \Monolog\Handler\StreamHandler::class,
+            'handler_with' => [
+                'stream' => storage_path('logs/laravel-json.log'),
+            ],
+            'formatter' => \Monolog\Formatter\JsonFormatter::class,
+        ],
 
         'stack' => [
             'driver'            => 'stack',
