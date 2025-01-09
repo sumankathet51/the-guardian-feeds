@@ -16,7 +16,10 @@ class GuardianService implements RssFeedContract
     {
         Log::debug('Fetching sections from Guardian API', ['endpoint' => $endpoint]);
 
-        $queryParams['api-key'] = 'sadasd';
+        $this->validateQueryParams($queryParams);
+        $this->validateApiKey();
+
+        $queryParams['api-key'] = config('the-guardian.api_key');
         $queryParams['format']  = 'json';
         $endpoint .= '?'.http_build_query($queryParams);
 
@@ -30,5 +33,25 @@ class GuardianService implements RssFeedContract
         Log::info('Successfully fetched sections from Guardian API');
 
         return $response->json()['response']['results'];
+    }
+
+    /**
+     * @throws GuardianApiException
+     */
+    private function validateQueryParams(array $queryParams): void
+    {
+        if (! isset($queryParams['q'])) {
+            throw new GuardianApiException('Missing query parameter "q"');
+        }
+    }
+
+    /**
+     * @throws GuardianApiException
+     */
+    private function validateApiKey(): void
+    {
+        if (! config('the-guardian.api_key')) {
+            throw new GuardianApiException('Missing API key');
+        }
     }
 }
